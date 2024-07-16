@@ -434,7 +434,9 @@ public class APIEnums {
         TR("tr"),
         TR_TR("tr-tr"),
         ZH("zh"),
-        ZH_CN("zh-cn");
+        ZH_CN("zh-cn"),
+        VI("VI"),
+        VI_VN("VI-VN");
 
         private final String value;
 

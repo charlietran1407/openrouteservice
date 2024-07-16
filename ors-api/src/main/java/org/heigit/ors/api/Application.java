@@ -11,9 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
 @ServletComponentScan("org.heigit.ors.api.servlet.listeners")
+@EnableDiscoveryClient
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
     private static final Logger LOG = Logger.getLogger(Application.class.getName());
@@ -23,6 +25,7 @@ public class Application extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
+
         if (args.length > 0 && !StringUtility.isNullOrEmpty(args[0]) && !args[0].startsWith("-")) {
             System.setProperty(ORSEnvironmentPostProcessor.ORS_CONFIG_LOCATION_PROPERTY, args[0]);
         }
@@ -32,6 +35,7 @@ public class Application extends SpringBootServletInitializer {
             System.exit(1);
         }
     }
+
 
     @Bean("ORSInitContextListenerBean")
     public ServletListenerRegistrationBean<ServletContextListener> createORSInitContextListenerBean(EngineProperties engineProperties) {

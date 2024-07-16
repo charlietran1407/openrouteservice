@@ -23,7 +23,7 @@ ors-engine/src/test
 ors-api/graphs-apitests
 ors-api/logs
 
-ors-api/target/
+#ors-api/target/
 ors-engine/target/
 ors-docker/**
 
